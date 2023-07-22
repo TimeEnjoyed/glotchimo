@@ -39,7 +39,7 @@ func authenticate() error {
 	// Set up a temporary HTTP server to receive the authorization callback
 	http.HandleFunc("/callback", handleCallback)
 	go func() {
-		if err := http.ListenAndServe("localhost:8080", nil); err != nil {
+		if err := http.ListenAndServe("0.0.0.0:8080", nil); err != nil {
 			log.Fatal(err)
 		}
 	}()
